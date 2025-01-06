@@ -1,4 +1,12 @@
-const Modal: React.FC = ({
+import { CartItem } from "../types"
+
+interface ModalProps {
+  isOpen: boolean
+  orderDetails: CartItem[]
+  totalAmount: number
+  handleCloseModal: () => void
+}
+const Modal: React.FC<ModalProps> = ({
   isOpen,
   orderDetails,
   totalAmount,

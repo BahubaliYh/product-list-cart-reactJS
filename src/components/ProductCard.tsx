@@ -2,6 +2,7 @@ import { Product } from "../types"
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { addToCart, decrementQuantity } from "../cartSlice"
+import { RootState } from "../store"
 
 interface ProductCardProps {
   product: Product
@@ -28,8 +29,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
   // Use Redux state instead of local state for quantity
   const quantity = useSelector(
-    (state: any) =>
-      state.cart.find((item: any) => item.id === product.id)?.quantity || 0
+    (state: RootState) =>
+      state.cart.find((item) => item.id === product.id)?.quantity || 0
   )
 
   return (
