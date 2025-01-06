@@ -37,10 +37,11 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     <div className="p-4">
       <div className="relative">
         <img
-          src={`${product.image.desktop}`}
+          src={`${process.env.PUBLIC_URL}${product.image.desktop}`}
           alt={product.name}
           className="w-full h-48 object-cover rounded-lg"
         />
+
         <div
           className="absolute left-1/2 transform -translate-x-1/2 bottom-0 translate-y-1/2"
           onMouseEnter={() => setIsHovered(true)}
