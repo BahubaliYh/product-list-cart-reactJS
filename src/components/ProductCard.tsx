@@ -37,7 +37,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     <div className="p-4">
       <div className="relative">
         <img
-          src={`${process.env.REACT_APP_PUBLIC_URL}/${product.image.desktop}`}
+          src={`${product.image.desktop}`}
           alt={product.name}
           className="w-full h-48 object-cover rounded-lg"
         />
