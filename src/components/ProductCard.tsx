@@ -35,9 +35,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
   return (
     <div className="p-4">
-      <div className="relative">
+      <div className="relative border-2 border-transparent rounded-lg hover:border-red">
         <img
-          src={`${process.env.PUBLIC_URL}${product.image.desktop}`}
+          src={`${import.meta.env.BASE_URL}${product.image.desktop}`}
           alt={product.name}
           className="w-full h-48 object-cover rounded-lg"
         />
@@ -55,7 +55,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             onClick={handleMobileClick}
           >
             <img
-              src={"/assets/images/icon-add-to-cart.svg"}
+              src={`${
+                import.meta.env.BASE_URL
+              }/assets/images/icon-add-to-cart.svg`}
               alt=""
               className={`w-4 h-4 mr-2 ${
                 isHovered || isMobile ? "filter invert" : ""

@@ -32,7 +32,7 @@ const Modal: React.FC<ModalProps> = ({
               className="flex items-center justify-between border-b pb-4"
             >
               <img
-                src={order.image.thumbnail}
+                src={`${import.meta.env.BASE_URL}${order.image.thumbnail}`}
                 className="h-10 rounded-md"
                 alt=""
               />
