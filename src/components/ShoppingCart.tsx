@@ -14,6 +14,7 @@ const ShoppingCart: React.FC = () => {
     (sum, item) => sum + item.price * item.quantity,
     0
   )
+  const totalCartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0)
 
   const handleConfirmOrder = () => {
     setIsModalOpen(true)
@@ -25,12 +26,17 @@ const ShoppingCart: React.FC = () => {
   return (
     <div className="bg-white p-6 rounded-lg shadow-sm">
       <h2 className="text-xl font-bold text-red mb-4">
-        Your Cart ({cartItems.length})
+        Your Cart ({totalCartCount})
       </h2>
 
       {!cartItems.length ? (
         <div className="flex flex-col justify-center items-center">
-          <img src={"/assets/images/illustration-empty-cart.svg"} alt="" />
+          <img
+            src={`${
+              import.meta.env.BASE_URL
+            }/assets/images/illustration-empty-cart.svg`}
+            alt=""
+          />
           <p className="text-rose-500 font-medium">
             Your added items will appear here
           </p>
@@ -57,7 +63,12 @@ const ShoppingCart: React.FC = () => {
                   onClick={() => dispatch(removeFromCart(item.id))}
                   className="text-gray-400 hover:text-gray-600 border rounded-full border-rose-500 w-4 h-4 flex items-center justify-center"
                 >
-                  <img src={"/assets/images/icon-remove-item.svg"} alt="" />
+                  <img
+                    src={`${
+                      import.meta.env.BASE_URL
+                    }/assets/images/icon-remove-item.svg`}
+                    alt=""
+                  />
                 </button>
               </div>
             ))}
